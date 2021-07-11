@@ -16,6 +16,7 @@ public class Usuario {
     private String login;
 
 
+
     @Column(nullable = false)
     private String senha;
 
@@ -23,6 +24,9 @@ public class Usuario {
     private LocalDateTime criadoEm;
 
 
-
-
+    public Usuario(@Email String login, String senha) {
+        this.senha = senha;
+        this.login = login;
+        this.criadoEm = LocalDateTime.now();
+    }
 }
