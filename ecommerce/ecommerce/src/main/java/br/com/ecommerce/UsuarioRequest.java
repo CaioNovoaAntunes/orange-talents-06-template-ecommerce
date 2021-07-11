@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
         @NotBlank
         @Email(message = "O login deve estar no formato de email")
         private String login;
+        @NotBlank
         @JsonProperty("senha")
         @Size(min = 6)
         private String senha;

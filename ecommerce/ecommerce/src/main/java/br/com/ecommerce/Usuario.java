@@ -1,5 +1,8 @@
 package br.com.ecommerce;
 
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
+
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -25,6 +28,8 @@ public class Usuario {
 
 
     public Usuario(@Email String login, String senha) {
+        Assert.isTrue(StringUtils.hasLength(login),"email não pode ser em branco");
+        Assert.notNull(senha,"o objeto do tipo senha limpa nao pode ser nulo");
         this.senha = senha;
         this.login = login;
         this.criadoEm = LocalDateTime.now();
