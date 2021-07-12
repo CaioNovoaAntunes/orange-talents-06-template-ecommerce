@@ -27,6 +27,9 @@ public class Usuario {
     private LocalDateTime criadoEm;
 
 
+    public Usuario() {
+    }
+
     public Usuario(@Email String login, String senha) {
         Assert.isTrue(StringUtils.hasLength(login),"email não pode ser em branco");
         Assert.notNull(senha,"o objeto do tipo senha limpa nao pode ser nulo");

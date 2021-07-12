@@ -19,7 +19,8 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity <Usuario> casatrarUsuario(@RequestBody @Valid UsuarioRequest usuarioRequest){
        Usuario usuario =usuarioRequest.toModelo();
-        return ResponseEntity.ok(usuarioRepository.save(usuario));
+        usuarioRepository.save(usuario);
+        return ResponseEntity.ok().build();
     }
 
 }
