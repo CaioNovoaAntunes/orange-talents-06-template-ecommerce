@@ -1,6 +1,7 @@
 package br.com.ecommerce;
 
 import br.com.ecommerce.validador.ExisteEmail;
+import br.com.ecommerce.validador.UniqueValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -13,7 +14,7 @@ import javax.validation.constraints.Size;
 
 
         @JsonProperty("login")
-        @ExisteEmail(message = "existe já")
+        @UniqueValue(Classe = Usuario.class , campo = "login")
         @NotBlank
         @Email(message = "O login deve estar no formato de email")
         private String login;
