@@ -1,4 +1,4 @@
-package br.com.ecommerce;
+package br.com.ecommerce.usuario;
 
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;

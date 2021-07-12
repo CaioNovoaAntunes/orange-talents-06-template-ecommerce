@@ -1,6 +1,5 @@
-package br.com.ecommerce;
+package br.com.ecommerce.usuario;
 
-import br.com.ecommerce.validador.ExisteEmail;
 import br.com.ecommerce.validador.UniqueValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
