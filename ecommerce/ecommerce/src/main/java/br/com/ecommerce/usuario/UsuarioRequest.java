@@ -12,11 +12,11 @@ import javax.validation.constraints.Size;
     public class UsuarioRequest {
 
 
-        @JsonProperty("login")
-        @UniqueValue(Classe = Usuario.class , campo = "login")
+        @JsonProperty("email")
+        @UniqueValue(Classe = Usuario.class , campo = "email")
         @NotBlank
         @Email(message = "O login deve estar no formato de email")
-        private String login;
+        private String email;
         @NotBlank
 
         @JsonProperty("senha")
@@ -25,6 +25,6 @@ import javax.validation.constraints.Size;
 
         public Usuario toModelo(){
             BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-            return new Usuario(login,encoder.encode(senha));
+            return new Usuario(email,encoder.encode(senha));
         }
     }
