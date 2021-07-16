@@ -153,4 +153,6 @@ public class Usuario implements UserDetails {
     public List<Perfil> getPerfis() {
         return perfis;
     }
+
+
 }

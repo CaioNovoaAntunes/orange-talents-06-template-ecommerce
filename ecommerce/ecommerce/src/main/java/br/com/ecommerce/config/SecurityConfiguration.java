@@ -64,10 +64,10 @@ auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordE
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+        web
+                .ignoring()
+                .antMatchers("/h2-console/**");
 
-    }
-    public static void main(String [] args){
-        System.out.println(new BCryptPasswordEncoder().encode("123456"));
     }
 
 }
