@@ -2,6 +2,8 @@ package br.com.ecommerce.produto;
 
 import br.com.ecommerce.categoria.Categoria;
 import br.com.ecommerce.produto.imagem.Imagem;
+import br.com.ecommerce.produto.opiniao.Opiniao;
+import br.com.ecommerce.produto.opiniao.OpiniaoRequest;
 import br.com.ecommerce.usuario.Usuario;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.util.Assert;
@@ -10,10 +12,7 @@ import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -37,6 +36,8 @@ public class Produto {
     private Set<Caracteristicas> caracteristicas = new HashSet<>();
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private Set<Imagem> imagens = new HashSet<>();
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Opiniao> opinioes = new ArrayList<>();
 
     @ManyToOne
     private Usuario usuario;
@@ -85,5 +86,15 @@ public class Produto {
                 .collect(Collectors.toSet());
 
         this.imagens.addAll(imagens);
+    }
+
+
+
+    public void addOpiniao(OpiniaoRequest opiniaoRequest, Usuario usuario){
+
+        Opiniao opiniao = new Opiniao(opiniaoRequest.getNota(), opiniaoRequest.getTitulo(), opiniaoRequest.getDescricao(),
+                usuario, this);
+
+        this.opinioes.add(opiniao);
     }
 }
