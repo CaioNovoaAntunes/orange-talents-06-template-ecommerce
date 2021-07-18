@@ -4,6 +4,8 @@ import br.com.ecommerce.categoria.Categoria;
 import br.com.ecommerce.produto.imagem.Imagem;
 import br.com.ecommerce.produto.opiniao.Opiniao;
 import br.com.ecommerce.produto.opiniao.OpiniaoRequest;
+import br.com.ecommerce.produto.pergunta.Pergunta;
+import br.com.ecommerce.produto.pergunta.PerguntaRequest;
 import br.com.ecommerce.usuario.Usuario;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.util.Assert;
@@ -38,6 +40,8 @@ public class Produto {
     private Set<Imagem> imagens = new HashSet<>();
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private List<Opiniao> opinioes = new ArrayList<>();
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Pergunta> perguntas = new ArrayList<>();
 
     @ManyToOne
     private Usuario usuario;
@@ -89,6 +93,9 @@ public class Produto {
     }
 
 
+    public List<Pergunta> getPerguntas() {
+        return perguntas;
+    }
 
     public void addOpiniao(OpiniaoRequest opiniaoRequest, Usuario usuario){
 
@@ -96,5 +103,11 @@ public class Produto {
                 usuario, this);
 
         this.opinioes.add(opiniao);
+    }
+
+    public void addPergunta(PerguntaRequest novaPergunta, Usuario usuario) {
+        Pergunta pergunta = new Pergunta(novaPergunta.getTitulo(), usuario, this);
+
+        this.perguntas.add(pergunta);
     }
 }
