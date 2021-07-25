@@ -51,6 +51,7 @@ auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordE
         http.authorizeRequests()
                 .antMatchers("/categoria").permitAll()
                 .antMatchers("/produtos").permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/auth").permitAll().anyRequest().authenticated()
                 .and()
                 .csrf()
