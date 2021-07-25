@@ -8,3 +8,12 @@ insert into produto (descricao, instante, nome, quantidade, valor, categoria_id,
 insert into caracteristicas (descricao, nome, produto_id) values ('OLED', 'Tela', 1)
 insert into caracteristicas (descricao, nome, produto_id) values ('Preto', 'Cor', 1)
 insert into caracteristicas (descricao, nome, produto_id) values ('128GB', 'Armazenamento', 1)
+
+insert into opiniao (nota, titulo, produto_id, usuario_id, descricao) values (5, 'Muito bom', 1, 1, 'Produto excelente, supriu minhas expectativas')
+insert into opiniao (nota, titulo, produto_id, usuario_id, descricao) values (4, 'Bom', 1, 1, 'Produto vale a pena, não me arrependi. So não dei nota 5 pq demorou pra chegar')
+
+insert into pergunta (instante, titulo, produto_id, usuario_id) values ('2021-04-12 12:17:43.630804', 'Qual o tamanho da tela?', 1, 1)
+insert into pergunta (instante, titulo, produto_id, usuario_id) values ('2021-04-11 12:17:43.630804', 'É cobrado frete para entregar?', 1, 1)
+
+insert into imagem (link, produto_id) values ('https://aws.com/ml/1652604838', 1)
+insert into imagem (link, produto_id) values ('https://aws.com/ml/918422736', 1)

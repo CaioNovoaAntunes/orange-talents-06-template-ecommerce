@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class CategoriaDTO {
     @UniqueValue(campo = "nome", Classe = Categoria.class)
     private String nome;
-    @CheckIfExist(domain = Categoria.class, field = "id")
+
     private Long idCategoriaMae;
 
 

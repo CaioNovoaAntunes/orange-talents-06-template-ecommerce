@@ -1,6 +1,8 @@
 package br.com.ecommerce.produto;
 
 import br.com.ecommerce.categoria.Categoria;
+import br.com.ecommerce.produto.caracteristica.Caracteristicas;
+import br.com.ecommerce.produto.caracteristica.CaracteristicasRequest;
 import br.com.ecommerce.produto.imagem.Imagem;
 import br.com.ecommerce.produto.opiniao.Opiniao;
 import br.com.ecommerce.produto.opiniao.OpiniaoRequest;
@@ -10,7 +12,6 @@ import br.com.ecommerce.usuario.Usuario;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.util.Assert;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -68,6 +69,10 @@ public class Produto {
     public Produto() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,6 +97,16 @@ public class Produto {
         this.imagens.addAll(imagens);
     }
 
+    public Produto(String descricao, String nome, BigDecimal valor){
+        this.descricao = descricao;
+        this.nome = nome;
+        this.valor = valor;
+    }
+
+
+    public List<Opiniao> getOpinioes() {
+        return opinioes;
+    }
 
     public List<Pergunta> getPerguntas() {
         return perguntas;
@@ -105,9 +120,50 @@ public class Produto {
         this.opinioes.add(opiniao);
     }
 
+    public Set<Imagem> getImagens() {
+        return imagens;
+    }
+
+    public Set<Caracteristicas> getCaracteristicas() {
+        return caracteristicas;
+    }
+
     public void addPergunta(PerguntaRequest novaPergunta, Usuario usuario) {
         Pergunta pergunta = new Pergunta(novaPergunta.getTitulo(), usuario, this);
 
         this.perguntas.add(pergunta);
     }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", valor=" + valor +
+                ", quantidade=" + quantidade +
+                ", descricao='" + descricao + '\'' +
+                ", categoria=" + categoria +
+                ", instante=" + instante +
+                ", caracteristicas=" + caracteristicas +
+                ", imagens=" + imagens +
+                ", opinioes=" + opinioes +
+                ", perguntas=" + perguntas +
+                ", usuario=" + usuario +
+                '}';
+    }
+
+
 }

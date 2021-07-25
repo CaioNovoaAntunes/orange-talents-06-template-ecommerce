@@ -50,6 +50,7 @@ auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordE
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/categoria").permitAll()
+                .antMatchers("/produtos").permitAll()
                 .antMatchers("/auth").permitAll().anyRequest().authenticated()
                 .and()
                 .csrf()

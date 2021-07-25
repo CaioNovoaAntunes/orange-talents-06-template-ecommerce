@@ -1,4 +1,6 @@
-package br.com.ecommerce.produto;
+package br.com.ecommerce.produto.caracteristica;
+
+import br.com.ecommerce.produto.Produto;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;

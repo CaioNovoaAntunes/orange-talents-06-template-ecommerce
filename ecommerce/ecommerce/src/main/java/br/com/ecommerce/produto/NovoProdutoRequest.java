@@ -2,6 +2,7 @@ package br.com.ecommerce.produto;
 
 import br.com.ecommerce.categoria.Categoria;
 import br.com.ecommerce.categoria.CategoriaRepository;
+import br.com.ecommerce.produto.caracteristica.CaracteristicasRequest;
 import br.com.ecommerce.usuario.Usuario;
 import br.com.ecommerce.validador.CheckIfExist;
 import br.com.ecommerce.validador.UniqueValue;

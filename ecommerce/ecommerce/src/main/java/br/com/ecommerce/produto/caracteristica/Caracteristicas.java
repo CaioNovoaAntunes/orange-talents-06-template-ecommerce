@@ -1,4 +1,6 @@
-package br.com.ecommerce.produto;
+package br.com.ecommerce.produto.caracteristica;
+
+import br.com.ecommerce.produto.Produto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -43,6 +45,13 @@ public class Caracteristicas {
     }
 
 
+    public String getNome() {
+       return this.nome = nome;
+    }
+
+    public String getDescricao() {
+      return this.descricao = descricao;
+    }
 }
 
 
