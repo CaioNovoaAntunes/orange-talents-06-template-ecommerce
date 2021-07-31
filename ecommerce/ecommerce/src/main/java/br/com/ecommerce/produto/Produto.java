@@ -112,6 +112,10 @@ public class Produto {
         return perguntas;
     }
 
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
     public void addOpiniao(OpiniaoRequest opiniaoRequest, Usuario usuario){
 
         Opiniao opiniao = new Opiniao(opiniaoRequest.getNota(), opiniaoRequest.getTitulo(), opiniaoRequest.getDescricao(),
@@ -132,6 +136,10 @@ public class Produto {
         Pergunta pergunta = new Pergunta(novaPergunta.getTitulo(), usuario, this);
 
         this.perguntas.add(pergunta);
+    }
+    public void abaterEstoque(int quantidade){
+        this.quantidade = this.quantidade - quantidade;
+
     }
 
 
@@ -164,6 +172,7 @@ public class Produto {
                 ", usuario=" + usuario +
                 '}';
     }
+
 
 
 }
