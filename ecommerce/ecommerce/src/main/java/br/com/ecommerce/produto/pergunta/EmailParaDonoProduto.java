@@ -1,5 +1,6 @@
 package br.com.ecommerce.produto.pergunta;
 
+import br.com.ecommerce.finalizacomprapart2.EventoPedido;
 import br.com.ecommerce.produto.pedido.Pedido;
 import org.springframework.stereotype.Component;
 
@@ -19,4 +20,5 @@ public class EmailParaDonoProduto {
                 "Seu produto acaba de ser comprado. \n" +
                 "Comprador: " + pedido.getUsuario().getEmail() + "\n");
     }
+
 }

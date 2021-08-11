@@ -19,13 +19,12 @@ import java.util.Optional;
 @RequestMapping("/produto")
 public class ProdutoController {
     @Autowired
-    CategoriaRepository categoriaRepository;
+    private CategoriaRepository categoriaRepository;
     @Autowired
-    ProdutoRepository produtoRepository;
+    private ProdutoRepository produtoRepository;
 
     @Autowired
-    UsuarioRepository usuarioRepository;
-
+    private UsuarioRepository usuarioRepository;
 
 
     @PostMapping
