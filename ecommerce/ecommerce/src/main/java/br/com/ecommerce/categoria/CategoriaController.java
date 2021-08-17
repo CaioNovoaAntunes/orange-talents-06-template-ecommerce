@@ -28,7 +28,7 @@ public class CategoriaController {
     public ResponseEntity<Categoria> categoriaCadastrar(@RequestBody @Valid CategoriaDTO categoriaDTO){
        Categoria categoria = categoriaDTO.toModel(entityManager);
       repository.save(categoria);
-        return  ResponseEntity.ok(categoria);
+        return  ResponseEntity.ok().build();
     }
 
 
